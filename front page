@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wardiere Platform App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#1a1a1a',
+                        brandGold: '#d4af37',
+                        brandGray: '#333333',
+                        brandCard: '#242424'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-brandDark text-white font-sans antialiased pb-24">
+
+    <header class="p-4 flex justify-between items-center border-b border-brandGray sticky top-0 bg-brandDark z-10 shadow-md">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full bg-brandGold flex items-center justify-center text-brandDark font-bold text-xl relative shadow-lg">
+                W
+                <span class="absolute -bottom-1 -right-1 bg-brandDark rounded-full p-0.5">
+                    <i class="fa-solid fa-circle-check text-blue-500 text-sm"></i>
+                </span>
+            </div>
+            <div>
+                <h1 class="text-sm font-bold tracking-wide">Hi, Alex</h1>
+                <p class="text-[10px] text-green-400 font-medium tracking-wider uppercase"><i class="fa-solid fa-shield-halved mr-1"></i>Verified UQ Student</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button class="bg-brandGray border border-brandGold/30 px-3 py-1.5 rounded-full text-sm text-brandGold font-bold flex items-center hover:bg-gray-700 transition">
+                <i class="fa-solid fa-coins mr-1.5"></i> 1,250 pts
+            </button>
+        </div>
+    </header>
+
+    <section class="px-5 pt-5 pb-2">
+        <h2 class="text-xl font-bold mb-3">Quick Services</h2>
+        <div class="grid grid-cols-2 gap-3">
+            <button class="bg-brandGray p-4 rounded-xl flex flex-col items-start hover:bg-gray-700 transition border-l-2 border-brandGold">
+                <i class="fa-solid fa-house-magnifying-glass text-purple-400 text-2xl mb-2"></i>
+                <span class="text-sm font-semibold">Find Property</span>
+            </button>
+            <button class="bg-brandGray p-4 rounded-xl flex flex-col items-start hover:bg-gray-700 transition border-l-2 border-transparent hover:border-blue-400">
+                <i class="fa-solid fa-broom text-blue-400 text-2xl mb-2"></i>
+                <span class="text-sm font-semibold">P2P Cleaning</span>
+            </button>
+            <button class="bg-brandGray p-4 rounded-xl flex flex-col items-start hover:bg-gray-700 transition border-l-2 border-transparent hover:border-green-400">
+                <i class="fa-solid fa-box-open text-green-400 text-2xl mb-2"></i>
+                <span class="text-sm font-semibold">Lend Supplies</span>
+            </button>
+            <button class="bg-brandGray p-4 rounded-xl flex flex-col items-start hover:bg-gray-700 transition border-l-2 border-transparent hover:border-orange-400">
+                <i class="fa-solid fa-truck-fast text-orange-400 text-2xl mb-2"></i>
+                <span class="text-sm font-semibold">Moving Help</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="px-5 mt-6">
+        <div class="flex justify-between items-end mb-4">
+            <h2 class="text-xl font-bold">Live Requests</h2>
+            <a href="#" class="text-brandGold text-xs font-medium hover:underline">View Map</a>
+        </div>
+
+        <div class="space-y-4">
+            
+            <div class="bg-brandCard p-4 rounded-2xl border border-gray-800 shadow-lg relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                <div class="flex justify-between items-start mb-2 pl-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-600 overflow-hidden">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jessica" alt="User Avatar" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm flex items-center">
+                                Jessica T. <i class="fa-solid fa-circle-check text-blue-500 text-[11px] ml-1"></i>
+                            </p>
+                            <p class="text-xs text-gray-400">
+                                <i class="fa-solid fa-star text-brandGold"></i> 4.8 (15 reviews)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-brandGold/20 text-brandGold px-2.5 py-1 rounded text-sm font-bold">
+                        + 150 pts
+                    </div>
+                </div>
+                <div class="pl-2">
+                    <h3 class="font-bold text-sm mt-3 mb-1 text-white">Need help cleaning my kitchen (End of Lease)</h3>
+                    <p class="text-xs text-gray-400 mb-4"><i class="fa-solid fa-location-dot mr-1 text-gray-500"></i> Toowong (1.5km) • <i class="fa-regular fa-clock ml-1 mr-1 text-gray-500"></i> Tomorrow 10 AM</p>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-brandGold text-brandDark font-bold py-2 rounded-lg text-sm hover:bg-yellow-500 transition">Accept Task</button>
+                        <button class="flex-1 bg-brandGray text-white font-medium py-2 rounded-lg text-sm border border-gray-600 hover:bg-gray-600 transition">
+                            <i class="fa-regular fa-message mr-1"></i> Chat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-brandCard p-4 rounded-2xl border border-gray-800 shadow-lg relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
+                <div class="flex justify-between items-start mb-2 pl-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-600 overflow-hidden">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=David" alt="User Avatar" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm flex items-center">
+                                David K. <i class="fa-solid fa-circle-check text-blue-500 text-[11px] ml-1"></i>
+                            </p>
+                            <p class="text-xs text-gray-400">
+                                <i class="fa-solid fa-star text-brandGold"></i> 5.0 (2 reviews)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-brandGold/20 text-brandGold px-2.5 py-1 rounded text-sm font-bold">
+                        + 30 pts
+                    </div>
+                </div>
+                <div class="pl-2">
+                    <h3 class="font-bold text-sm mt-3 mb-1 text-white">Looking to borrow a vacuum for 2 hours</h3>
+                    <p class="text-xs text-gray-400 mb-4"><i class="fa-solid fa-location-dot mr-1 text-gray-500"></i> St Lucia (800m) • <i class="fa-regular fa-clock ml-1 mr-1 text-gray-500"></i> Flexible</p>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-brandGold text-brandDark font-bold py-2 rounded-lg text-sm hover:bg-yellow-500 transition">Lend Item</button>
+                        <button class="flex-1 bg-brandGray text-white font-medium py-2 rounded-lg text-sm border border-gray-600 hover:bg-gray-600 transition">
+                            <i class="fa-regular fa-message mr-1"></i> Chat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="w-full mt-5 bg-brandDark border-2 border-dashed border-gray-600 text-gray-300 py-3.5 rounded-xl font-bold text-sm hover:border-brandGold hover:text-brandGold transition group">
+            <i class="fa-solid fa-plus mr-2 group-hover:scale-110 transition-transform"></i> Post a New Request
+        </button>
+    </section>
+
+    <nav class="fixed bottom-0 w-full bg-brandDark border-t border-brandGray flex justify-around py-3 text-gray-400 z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.3)]">
+        <button class="flex flex-col items-center text-brandGold">
+            <i class="fa-solid fa-house mb-1 text-lg"></i>
+            <span class="text-[10px] font-semibold">Home</span>
+        </button>
+        <button class="flex flex-col items-center hover:text-white transition">
+            <i class="fa-solid fa-clipboard-list mb-1 text-lg"></i>
+            <span class="text-[10px] font-medium">Tasks</span>
+        </button>
+        <button class="flex flex-col items-center hover:text-white transition relative">
+            <i class="fa-solid fa-comments mb-1 text-lg"></i>
+            <span class="text-[10px] font-medium">Messages</span>
+            <span class="absolute top-0 right-3 w-2.5 h-2.5 bg-red-500 border-2 border-brandDark rounded-full"></span>
+        </button>
+        <button class="flex flex-col items-center hover:text-white transition">
+            <i class="fa-solid fa-circle-user mb-1 text-lg"></i>
+            <span class="text-[10px] font-medium">Profile</span>
+        </button>
+    </nav>
+
+</body>
+</html>
