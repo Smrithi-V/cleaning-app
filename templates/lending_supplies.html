@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Lending Supplies | Wardiere{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Lending Supplies</h2>
+<p class="page-subtitle">Borrow or lend cleaning supplies like vacuums, mops, buckets, sprays, and gloves.</p>
+
+<section class="soft-card mb-5">
+    <h3 class="font-extrabold text-lg">Request supplies</h3>
+    <p class="text-sm text-muted mt-1">Ask another student nearby to lend an item in exchange for points.</p>
+
+    <form class="space-y-4 mt-5">
+        <div>
+            <label class="label">Item needed</label>
+            <input class="input" placeholder="e.g. Vacuum cleaner">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+            <div>
+                <label class="label">Borrow time</label>
+                <input class="input" placeholder="2 hours">
+            </div>
+            <div>
+                <label class="label">Points</label>
+                <input class="input" type="number" placeholder="30">
+            </div>
+        </div>
+        <button type="submit" class="primary-btn w-full">Post Supply Request</button>
+    </form>
+</section>
+
+<section class="space-y-4">
+    <article class="soft-card">
+        <div class="flex justify-between gap-3">
+            <div>
+                <h3 class="font-extrabold">Looking to borrow a vacuum</h3>
+                <p class="text-sm text-muted mt-1">Needed for 2 hours. Can pick up from St Lucia.</p>
+                <p class="text-xs text-muted mt-2">St Lucia • Flexible</p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 rounded-full px-3 py-1 h-fit text-sm font-extrabold">+30 pts</span>
+        </div>
+        <button class="dark-btn w-full mt-4">Lend Item</button>
+    </article>
+</section>
+{% endblock %}

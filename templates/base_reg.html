@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Wardiere{% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="min-h-screen font-sans text-slate-800">
+
+<div class="min-h-screen grid lg:grid-cols-2">
+
+    <section class="hidden lg:flex relative overflow-hidden bg-sky-100">
+        <img src="{{ url_for('static', filename='images/cleaning.jpg') }}"
+             class="absolute inset-0 w-full h-full object-cover">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-sky-500/35 via-indigo-300/25 to-teal-300/35"></div>
+
+        <div class="relative z-10 p-12 flex flex-col justify-between text-white">
+            <div class="flex items-center gap-3">
+                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}"
+                         class="w-10 h-10 object-contain">
+                </div>
+                <div>
+                    <h1 class="text-3xl font-black">Wardiere</h1>
+                    <p class="text-white/80">Student cleaning exchange</p>
+                </div>
+            </div>
+
+            <div class="max-w-xl">
+                <h2 class="text-5xl font-black leading-tight">
+                    Cleaning help made easier for students.
+                </h2>
+                <p class="text-lg text-white/85 mt-5">
+                    Request cleaning, lend supplies, move apartments, and earn Wardiere points.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative flex items-center justify-center bg-gradient-to-br from-white via-sky-50 to-teal-50 p-6">
+        <div class="absolute top-10 right-10 w-48 h-48 bg-sky-200/40 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-48 h-48 bg-teal-200/40 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 w-full max-w-md">
+            {% block content %}{% endblock %}
+        </div>
+    </section>
+
+</div>
+
+<style>
+    .auth-card {
+        background: rgba(255,255,255,0.82);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(255,255,255,0.8);
+        border-radius: 2rem;
+        padding: 2rem;
+        box-shadow: 0 20px 60px rgba(15,118,110,0.12);
+    }
+
+    .label {
+        display: block;
+        font-size: .85rem;
+        font-weight: 800;
+        margin-bottom: .45rem;
+        color: #334155;
+    }
+
+    .input {
+        width: 100%;
+        border: 1px solid #dbeafe;
+        border-radius: 1rem;
+        padding: .9rem 1rem;
+        background: white;
+        outline: none;
+    }
+
+    .input:focus {
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 4px rgba(56,189,248,.15);
+    }
+
+    .primary-btn {
+        width: 100%;
+        border-radius: 1rem;
+        padding: .95rem 1rem;
+        color: white;
+        font-weight: 900;
+        background: linear-gradient(135deg, #0f766e, #38bdf8);
+        box-shadow: 0 14px 30px rgba(15,118,110,.18);
+    }
+</style>
+
+</body>
+</html>

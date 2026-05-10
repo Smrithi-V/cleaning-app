@@ -1,0 +1,304 @@
+<!-- =========================================================
+FILE: templates/base.html
+========================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Wardiere{% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#1f2937',
+                        mint: '#e9f7f2',
+                        mintDark: '#0f766e',
+                        aqua: '#38bdf8',
+                        peach: '#ffe7d6',
+                        lavender: '#ede9fe',
+                        card: '#ffffffcc',
+                        muted: '#6b7280'
+                    },
+                    boxShadow: {
+                        soft: '0 20px 60px rgba(15, 118, 110, 0.14)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+<div class="app-shell min-h-screen">
+
+    <aside id="sidebar" class="hidden lg:flex w-72 glass-panel border-r border-white/60 p-6 flex-col fixed inset-y-0 left-0 z-30 transition-all duration-300">
+        <div class="flex items-center justify-between mb-10">
+        <a href="{{ url_for('dashboard') }}" class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-white shadow-soft flex items-center justify-center overflow-hidden shrink-0">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Wardiere Logo" class="h-10 w-10 object-contain">
+            </div>
+            <div class="sidebar-text">
+                <h1 class="text-xl font-black text-ink">Wardiere</h1>
+                <p class="text-xs text-muted">Student cleaning exchange</p>
+            </div>
+        </a>
+
+        <button onclick="toggleSidebar()" class="w-9 h-9 rounded-xl bg-white shadow-soft text-teal-700">
+            <i id="collapseIcon" class="fa-solid fa-chevron-left"></i>
+        </button>
+    </div>
+
+        <nav class="space-y-2">
+            <a href="{{ url_for('dashboard') }}" class="side-link {% if active_page == 'dashboard' %}active{% endif %}">
+                <i class="fa-solid fa-house"></i><span>Dashboard</span>
+            </a>
+            <a href="{{ url_for('live_services') }}" class="side-link {% if active_page == 'live_services' %}active{% endif %}">
+                <i class="fa-solid fa-house"></i><span>Live Services</span>
+            </a>
+
+
+            <a href="{{ url_for('p2p_cleaning') }}" class="side-link {% if active_page == 'cleaning' %}active{% endif %}"><i class="fa-solid fa-broom"></i><span>P2P Cleaning</span></a>    
+            <a href="{{ url_for('lending_supplies') }}" class="side-link {% if active_page == 'supplies' %}active{% endif %}"><i class="fa-solid fa-box-open"></i><span>Lending Supplies</span></a>
+            <a href="{{ url_for('moving_supplies') }}" class="side-link {% if active_page == 'moving' %}active{% endif %}"><i class="fa-solid fa-truck-fast"></i><span> Moving Help </span></a>
+            <a href="{{ url_for('find_properties') }}" class="side-link {% if active_page == 'properties' %}active{% endif %}"><i class="fa-solid fa-house-chimney-window"></i><span>Find Properties </span></a>
+        </nav>
+
+        <a href="{{ url_for('wallet') }}" class="mt-auto rounded-3xl bg-gradient-to-br from-teal-600 to-sky-500 text-white p-5 shadow-soft block hover:scale-[1.02] transition">
+            <div class="wallet-text">
+                <p class="text-xs font-bold uppercase tracking-widest text-white/75">Wallet</p>
+                <p class="text-4xl font-black mt-2">1,250</p>
+                <p class="text-sm text-white/80">Wardiere points available</p>
+            </div>
+        </a>
+    </aside>
+
+    <div id="pageContent" class="flex-1 lg:ml-72 transition-all duration-300">
+        <header class="glass-panel sticky top-0 z-20 border-b border-white/60">
+            <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-muted">Welcome back</p>
+                    <h2 class="text-2xl font-black text-ink">Hi, Alex 👋</h2>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="hidden sm:flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-700 px-4 py-2 text-sm font-extrabold border border-emerald-100">
+                        <i class="fa-solid fa-shield-halved"></i> Verified UQ Student
+                    </div>
+                    <a href="{{ url_for('wallet') }}" class="rounded-full bg-white text-teal-700 px-4 py-2 text-sm font-extrabold shadow-soft border border-white/70 hover:scale-[1.03] transition">                        <i class="fa-solid fa-coins mr-1"></i>1,250 pts
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-6 lg:px-10 py-8 pb-28 lg:pb-10">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</div>
+
+<nav class="lg:hidden fixed bottom-0 inset-x-0 z-30 glass-panel border-t border-white/60">
+    <div class="grid grid-cols-5 px-2 py-3 text-muted">
+        <a href="{{ url_for('dashboard') }}" class="nav-link {% if active_page == 'dashboard' %}active{% endif %}"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="{{ url_for('live_services') }}" class="nav-link {% if active_page == 'live_services' %}active{% endif %}"><i class="fa-solid fa-list-check"></i><span>Services</span></a>
+        <a href="{{ url_for('p2p_cleaning') }}" class="nav-link {% if active_page == 'cleaning' %}active{% endif %}"><i class="fa-solid fa-broom"></i><span>Clean</span></a>
+        <a href="{{ url_for('lending_supplies') }}" class="nav-link {% if active_page == 'supplies' %}active{% endif %}"><i class="fa-solid fa-box-open"></i><span>Supplies</span></a>
+        <a href="{{ url_for('find_properties') }}" class="nav-link {% if active_page == 'properties' %}active{% endif %}"><i class="fa-solid fa-house-chimney"></i><span>Housing</span></a>
+    </div>
+</nav>
+
+<style>
+    body {
+        min-height: 100vh;
+        color: #1f2937;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+
+        background-image:
+            linear-gradient(
+                rgba(236, 236, 255, 0.78),
+                rgba(244, 248, 255, 0.78)
+            ),
+            url("{{ url_for('static', filename='images/cleaning.jpg') }}");
+
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .app-shell {
+        background:
+            radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 35%),
+            radial-gradient(circle at bottom right, rgba(20, 184, 166, 0.18), transparent 35%);
+    }
+
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    .side-link {
+        display: flex;
+        align-items: center;
+        gap: .85rem;
+        padding: .9rem 1rem;
+        border-radius: 1.1rem;
+        color: #64748b;
+        font-weight: 850;
+        transition: .2s ease;
+    }
+
+    .side-link:hover,
+    .side-link.active {
+        background: linear-gradient(135deg, #0f766e, #38bdf8);
+        color: white;
+        box-shadow: 0 14px 35px rgba(15, 118, 110, 0.22);
+    }
+
+    .side-link i {
+        width: 1.2rem;
+    }
+
+    .nav-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .25rem;
+        font-size: .65rem;
+        font-weight: 800;
+    }
+
+    .nav-link i { font-size: 1.1rem; }
+    .nav-link.active { color: #0f766e; }
+
+    .soft-card,
+    .service-tile {
+        background: rgba(255,255,255,0.60);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+
+        border-radius: 1.7rem;
+        padding: 1.4rem;
+
+        border: 1px solid rgba(255,255,255,0.45);
+
+        box-shadow:
+            0 10px 30px rgba(139, 157, 255, 0.12),
+            0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .service-tile {
+        transition: .2s ease;
+    }
+
+    .service-tile:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 26px 70px rgba(15, 118, 110, 0.18);
+    }
+
+    .primary-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        background: linear-gradient(135deg, #0f766e, #38bdf8);
+        color: white;
+        font-weight: 900;
+        padding: .85rem 1rem;
+        box-shadow: 0 16px 35px rgba(15, 118, 110, 0.22);
+    }
+
+    .dark-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        background: #0f766e;
+        color: white;
+        font-weight: 900;
+        padding: .85rem 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        line-height: 2.3rem;
+        font-weight: 950;
+        color: #1f2937;
+    }
+
+    .page-subtitle {
+        color: #64748b;
+        margin-top: .35rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .label {
+        display: block;
+        font-size: .82rem;
+        font-weight: 850;
+        margin-bottom: .45rem;
+        color: #334155;
+    }
+
+    .input {
+        width: 100%;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        border-radius: 1rem;
+        padding: .85rem 1rem;
+        outline: none;
+        background: rgba(255,255,255,0.8);
+    }
+
+    .input:focus {
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 4px rgba(56,189,248,.15);
+    }
+
+    .sidebar-collapsed {
+        width: 5.5rem !important;
+    }
+
+    .sidebar-collapsed .sidebar-text,
+    .sidebar-collapsed .side-link span,
+    .sidebar-collapsed .wallet-text {
+        display: none;
+    }
+
+    .sidebar-collapsed .side-link {
+        justify-content: center;
+    }
+
+    .sidebar-collapsed .side-link i {
+        width: auto;
+    }
+
+    .content-collapsed {
+        margin-left: 5.5rem !important;
+    }
+
+</style>
+
+{% block scripts %}{% endblock %}
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const pageContent = document.getElementById("pageContent");
+        const icon = document.getElementById("collapseIcon");
+
+        sidebar.classList.toggle("sidebar-collapsed");
+        pageContent.classList.toggle("content-collapsed");
+
+        icon.classList.toggle("fa-chevron-left");
+        icon.classList.toggle("fa-chevron-right");
+    }
+</script>
+
+</body>
+</html>
+
+

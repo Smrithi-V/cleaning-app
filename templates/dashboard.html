@@ -1,0 +1,165 @@
+<!-- =========================================================
+FILE: templates/dashboard.html
+========================================================= -->
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Wardiere{% endblock %}
+
+{% block content %}
+<section class="grid lg:grid-cols-[1.4fr_.8fr] gap-6 items-stretch">
+    <div class="rounded-[2rem] bg-white/70 backdrop-blur-xl border border-white/40 text-ink p-8 lg:p-10 shadow-soft relative overflow-hidden min-h-[360px] flex flex-col justify-between">
+        <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-gold/25"></div>
+        <div class="absolute right-20 bottom-10 w-28 h-28 rounded-full bg-white/10"></div>
+
+        <div class="relative max-w-2xl">
+            <p class="text-sm text-softGold font-black uppercase tracking-[0.25em]">Student Cleaning Exchange</p>
+           <h1 class="text-4xl lg:text-5xl font-black mt-5 leading-tight max-w-2xl">Apartment help, without the awkward group chat.</h1>
+            <p class="text-white/70 text-lg mt-5 max-w-xl">Use Wardiere points to request cleaning help, borrow supplies, or help other students around campus.</p>
+        </div>
+
+        <div class="relative flex flex-wrap gap-3 mt-8">
+            <a href="{{ url_for('p2p_cleaning') }}" class="primary-btn bg-sky-600 text-white hover:bg-sky-700 transition"><i class="fa-solid fa-broom mr-2"></i>Request Cleaning</a>
+            <a href="{{ url_for('live_services') }}" class="bg-white/10 text-white rounded-2xl px-5 py-3 font-black border border-white/10 hover:bg-white/20">Browse Requests</a>
+        </div>
+    </div>
+
+    <div class="grid sm:grid-cols-3 lg:grid-cols-1 gap-4">
+        <article class="soft-card bg-softGold/70">
+            <p class="text-sm text-yellow-900 font-black uppercase">Available Points</p>
+            <h3 class="text-4xl font-black mt-2">1,250</h3>
+            <p class="text-sm text-muted mt-1">Spend points on help or earn more by accepting tasks.</p>
+        </article>
+
+        <article class="soft-card bg-sage/80">
+            <p class="text-sm text-emerald-900 font-black uppercase">Open Requests</p>
+            <h3 class="text-4xl font-black mt-2">12</h3>
+            <p class="text-sm text-muted mt-1">Cleaning, supplies, moving, and property help.</p>
+        </article>
+
+        <article class="soft-card bg-blush/80">
+            <p class="text-sm text-orange-900 font-black uppercase">Your Rating</p>
+            <h3 class="text-4xl font-black mt-2">4.9</h3>
+            <p class="text-sm text-muted mt-1">Based on completed student exchanges.</p>
+        </article>
+    </div>
+</section>
+
+<section class="mt-10">
+    <div class="flex items-end justify-between mb-5">
+        <div>
+            <h2 class="text-3xl font-black">Quick Services</h2>
+            <p class="text-muted mt-1">Pick what you need today.</p>
+        </div>
+        <a href="{{ url_for('live_services') }}" class="text-yellow-800 font-black">See all</a>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+     
+        <a href="{{ url_for('find_properties') }}" class="service-tile">
+        <div class="w-14 h-14 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-2xl mb-5">
+            <i class="fa-solid fa-house-chimney-window"></i>
+        </div>
+        <h3 class="text-xl font-black">Find Property</h3>
+        <p class="text-muted text-sm mt-2">Search student-friendly rentals and shared units.</p>
+        </a>
+        
+
+        <a href="{{ url_for('p2p_cleaning') }}" class="service-tile">
+            <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-2xl mb-5">
+                <i class="fa-solid fa-broom"></i>
+            </div>
+            <h3 class="text-xl font-black">P2P Cleaning</h3>
+            <p class="text-muted text-sm mt-2">Ask another student to help clean your apartment.</p>
+        </a>
+
+        <a href="{{ url_for('lending_supplies') }}" class="service-tile">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-5">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3 class="text-xl font-black">Lend Supplies</h3>
+            <p class="text-muted text-sm mt-2">Borrow vacuums, mops, buckets, sprays, or gloves.</p>
+        </a>
+
+        <a href="{{ url_for('moving_supplies') }}" class="service-tile">
+            <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-700 flex items-center justify-center text-2xl mb-5">
+                <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <h3 class="text-xl font-black">Moving Help</h3>
+            <p class="text-muted text-sm mt-2">Get help carrying boxes or moving apartment items.</p>
+        </a>
+    </div>
+</section>
+
+<section class="grid lg:grid-cols-[1fr_.7fr] gap-6 mt-10">
+    <div>
+        <div class="flex items-end justify-between mb-5">
+            <div>
+                <h2 class="text-3xl font-black">Latest Requests</h2>
+                <p class="text-muted mt-1">Help nearby students and earn points.</p>
+            </div>
+            <a href="{{ url_for('live_services') }}" class="text-yellow-800 font-black">View all</a>
+        </div>
+
+        <div class="space-y-4">
+            <article class="soft-card flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black">Kitchen end-of-lease clean</h3>
+                        <p class="text-sm text-muted mt-1">Toowong • Tomorrow 10 AM • Jessica T.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="bg-yellow-100 text-yellow-800 rounded-full px-4 py-2 text-sm font-black">+50 pts</span>
+                    <a href="{{ url_for('p2p_cleaning') }}" class="dark-btn">View</a>
+                </div>
+            </article>
+
+            <article class="soft-card flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black">Borrow a vacuum for 2 hours</h3>
+                        <p class="text-sm text-muted mt-1">St Lucia • Flexible • David K.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="bg-yellow-100 text-yellow-800 rounded-full px-4 py-2 text-sm font-black">+20 pts</span>
+                    <a href="{{ url_for('lending_supplies') }}" class="dark-btn">View</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <aside class="soft-card bg-white">
+        <h2 class="text-2xl font-black">How it works</h2>
+        <div class="space-y-5 mt-5">
+            <div class="flex gap-4">
+                <span class="w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center font-black">1</span>
+                <div>
+                    <h3 class="font-black">Post a request</h3>
+                    <p class="text-sm text-muted">Describe the cleaning task or supply you need.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <span class="w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center font-black">2</span>
+                <div>
+                    <h3 class="font-black">Offer points</h3>
+                    <p class="text-sm text-muted">Choose how many Wardiere points the task is worth.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <span class="w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center font-black">3</span>
+                <div>
+                    <h3 class="font-black">Exchange help</h3>
+                    <p class="text-sm text-muted">Another verified student accepts and completes it.</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+</section>
+{% endblock %}

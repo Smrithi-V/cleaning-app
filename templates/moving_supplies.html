@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+
+{% block title %}Moving Help | Wardiere{% endblock %}
+
+{% block content %}
+
+<section class="grid lg:grid-cols-[1.2fr_.8fr] gap-6 items-stretch">
+
+    <div class="soft-card relative overflow-hidden min-h-[280px] flex flex-col justify-between">
+
+        <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-orange-100 opacity-70"></div>
+
+        <div class="relative z-10 max-w-2xl">
+
+            <p class="text-sm text-orange-700 font-black uppercase tracking-[0.25em]">
+                Student Moving Exchange
+            </p>
+
+            <h1 class="text-4xl lg:text-5xl font-black mt-5 leading-tight text-ink">
+                Get help moving apartments without carrying everything alone.
+            </h1>
+
+            <p class="text-muted text-lg mt-5 max-w-xl">
+                Ask nearby students to help move boxes, furniture, cleaning supplies,
+                or apartment essentials in exchange for Wardiere points.
+            </p>
+
+        </div>
+
+        <div class="relative flex flex-wrap gap-3 mt-8">
+
+            <a href="#request-form" class="primary-btn">
+                <i class="fa-solid fa-truck-fast mr-2"></i>
+                Request Moving Help
+            </a>
+
+            <a href="#live-tasks"
+               class="rounded-2xl px-5 py-3 font-black border border-slate-200 bg-white/70 hover:bg-white transition">
+                Browse Tasks
+            </a>
+
+        </div>
+    </div>
+
+    <div class="grid gap-4">
+
+        <article class="soft-card bg-orange-50/70">
+            <p class="text-sm text-orange-800 font-black uppercase">
+                Active Moving Tasks
+            </p>
+
+            <h3 class="text-4xl font-black mt-2">
+                2
+            </h3>
+
+            <p class="text-sm text-muted mt-1">
+                Students currently looking for moving assistance.
+            </p>
+        </article>
+
+        <article class="soft-card bg-sky-50/70">
+            <p class="text-sm text-sky-800 font-black uppercase">
+                Average Reward
+            </p>
+
+            <h3 class="text-4xl font-black mt-2">
+                100
+            </h3>
+
+            <p class="text-sm text-muted mt-1">
+                Average Wardiere points earned per moving task.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<section id="request-form" class="mt-10">
+
+    <div class="flex items-end justify-between mb-5">
+
+        <div>
+            <h2 class="text-3xl font-black">Post a Moving Request</h2>
+            <p class="text-muted mt-1">
+                Let nearby students know what needs moving.
+            </p>
+        </div>
+
+    </div>
+
+    <section class="soft-card">
+
+        <form class="grid lg:grid-cols-2 gap-5">
+
+            <div class="lg:col-span-2">
+                <label class="label">Moving task</label>
+
+                <input class="input"
+                       placeholder="e.g. Carry boxes upstairs and move desk">
+            </div>
+
+            <div>
+                <label class="label">Location</label>
+
+                <input class="input"
+                       placeholder="Indooroopilly">
+            </div>
+
+            <div>
+                <label class="label">Wardiere points offered</label>
+
+                <input class="input"
+                       type="number"
+                       placeholder="200">
+            </div>
+
+            <div>
+                <label class="label">Date</label>
+
+                <input class="input"
+                       type="date">
+            </div>
+
+            <div>
+                <label class="label">Time</label>
+
+                <input class="input"
+                       type="time">
+            </div>
+
+            <div class="lg:col-span-2">
+                <label class="label">Extra details</label>
+
+                <textarea class="input min-h-[120px]"
+                          placeholder="Mention stairs, parking, heavy furniture, elevators, or anything helpers should know."></textarea>
+            </div>
+
+            <div class="lg:col-span-2">
+                <button type="submit" class="primary-btn w-full">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>
+                    Post Moving Request
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+</section>
+
+<section id="live-tasks" class="mt-10">
+
+    <div class="flex items-end justify-between mb-5">
+
+        <div>
+            <h2 class="text-3xl font-black">Nearby Moving Tasks</h2>
+            <p class="text-muted mt-1">
+                Help students nearby and earn points.
+            </p>
+        </div>
+
+        <a href="{{ url_for('live_services') }}"
+           class="text-orange-700 font-black">
+            View all
+        </a>
+
+    </div>
+
+    <div class="space-y-5">
+
+        <article class="soft-card flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+
+            <div class="flex gap-4">
+
+                <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-700 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-black">
+                        Help moving boxes into apartment
+                    </h3>
+
+                    <p class="text-muted mt-1">
+                        Need two students to help carry moving boxes from carpark to apartment.
+                    </p>
+
+                    <p class="text-sm text-muted mt-3">
+                        Indooroopilly • Friday 3 PM • Sarah L.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="flex items-center gap-3">
+
+                <span class="bg-orange-100 text-orange-800 rounded-full px-4 py-2 text-sm font-black">
+                    +100 pts
+                </span>
+
+                <button class="dark-btn">
+                    Accept Task
+                </button>
+
+            </div>
+
+        </article>
+
+        <article class="soft-card flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+
+            <div class="flex gap-4">
+
+                <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-black">
+                        Small van unloading help
+                    </h3>
+
+                    <p class="text-muted mt-1">
+                        Looking for help unloading furniture and kitchen supplies.
+                    </p>
+
+                    <p class="text-sm text-muted mt-3">
+                        St Lucia • Saturday 11 AM • David K.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="flex items-center gap-3">
+
+                <span class="bg-sky-100 text-sky-800 rounded-full px-4 py-2 text-sm font-black">
+                    +100 pts
+                </span>
+
+                <button class="dark-btn">
+                    Accept Task
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+{% endblock %}

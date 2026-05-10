@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Live Services | Wardiere{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Live Services</h2>
+<p class="page-subtitle">Browse active student requests and earn points by helping out.</p>
+
+<div class="space-y-4">
+    <article class="soft-card">
+        <div class="flex justify-between gap-3">
+            <div>
+                <p class="text-xs font-bold text-sky-700 uppercase">P2P Cleaning</p>
+                <h3 class="font-extrabold mt-1">End-of-lease kitchen clean</h3>
+                <p class="text-sm text-muted mt-1">Jessica needs help cleaning her apartment kitchen before inspection.</p>
+                <p class="text-xs text-muted mt-2"><i class="fa-solid fa-location-dot mr-1"></i>Toowong • Tomorrow 10 AM</p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 rounded-full px-3 py-1 h-fit text-sm font-extrabold">+50</span>
+        </div>
+        <a href="{{ url_for('p2p_cleaning') }}" class="dark-btn w-full mt-4">Open</a>
+    </article>
+
+    <article class="soft-card">
+        <div class="flex justify-between gap-3">
+            <div>
+                <p class="text-xs font-bold text-emerald-700 uppercase">Lending Supplies</p>
+                <h3 class="font-extrabold mt-1">Borrow a vacuum</h3>
+                <p class="text-sm text-muted mt-1">David needs a vacuum for two hours and will return it today.</p>
+                <p class="text-xs text-muted mt-2"><i class="fa-solid fa-location-dot mr-1"></i>St Lucia • Flexible</p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 rounded-full px-3 py-1 h-fit text-sm font-extrabold">+20</span>
+        </div>
+        <a href="{{ url_for('lending_supplies') }}" class="dark-btn w-full mt-4">Open</a>
+    </article>
+
+    <article class="soft-card">
+        <div class="flex justify-between gap-3">
+            <div>
+                <p class="text-xs font-bold text-orange-700 uppercase">Moving Help</p>
+                <h3 class="font-extrabold mt-1">Move boxes to new unit</h3>
+                <p class="text-sm text-muted mt-1">Mina needs help carrying boxes from a car to her apartment.</p>
+                <p class="text-xs text-muted mt-2"><i class="fa-solid fa-location-dot mr-1"></i>Indooroopilly • Friday 3 PM</p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 rounded-full px-3 py-1 h-fit text-sm font-extrabold">+100</span>
+        </div>
+        <a href="{{ url_for('moving_supplies') }}" class="dark-btn w-full mt-4">Open</a>
+    </article>
+
+    <article class="soft-card">
+        <div class="flex justify-between gap-3">
+            <div>
+                <p class="text-xs font-bold text-orange-700 uppercase">Moving Help</p>
+                <h3 class="font-extrabold mt-1">Small van unloading help</h3>
+                <p class="text-sm text-muted mt-1">David K needs help unloading furniture and kitchen supplies from a van to his apartment.</p>
+                <p class="text-xs text-muted mt-2"><i class="fa-solid fa-location-dot mr-1"></i> St Lucia • Saturday 11 AM </p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 rounded-full px-3 py-1 h-fit text-sm font-extrabold">+100</span>
+        </div>
+        <a href="{{ url_for('moving_supplies') }}" class="dark-btn w-full mt-4">Open</a>
+    </article>
+
+</div>
+{% endblock %}  

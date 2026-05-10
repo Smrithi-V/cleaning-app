@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}P2P Cleaning | Wardiere{% endblock %}
+
+{% block content %}
+<h2 class="page-title">P2P Cleaning</h2>
+<p class="page-subtitle">Students can request apartment cleaning help and pay other students with Wardiere points.</p>
+
+<section class="soft-card mb-5">
+    <h3 class="font-extrabold text-lg">Post a cleaning request</h3>
+    <p class="text-sm text-muted mt-1">Use this for kitchens, bathrooms, end-of-lease cleans, or shared-space cleanups.</p>
+
+    <form class="space-y-4 mt-5">
+        <div>
+            <label class="label">Cleaning task</label>
+            <input class="input" placeholder="e.g. Clean bathroom and mop floor">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+            <div>
+                <label class="label">Location</label>
+                <input class="input" placeholder="Toowong">
+            </div>
+            <div>
+                <label class="label">Points</label>
+                <input class="input" type="number" placeholder="150">
+            </div>
+        </div>
+        <button type="submit" class="primary-btn w-full">Post Cleaning Request</button>
+    </form>
+</section>
+
+<section class="space-y-4">
+    <article class="soft-card">
+        <div class="flex justify-between gap-3">
+            <div>
+                <h3 class="font-extrabold">Kitchen end-of-lease clean</h3>
+                <p class="text-sm text-muted mt-1">Need counters, sink, floor, and stove wiped before inspection.</p>
+                <p class="text-xs text-muted mt-2">Toowong • Tomorrow 10 AM</p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 rounded-full px-3 py-1 h-fit text-sm font-extrabold">+50 pts</span>
+        </div>
+        <button class="dark-btn w-full mt-4">Accept Task</button>
+    </article>
+</section>
+{% endblock %}

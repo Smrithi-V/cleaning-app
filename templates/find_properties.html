@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Find Properties | Wardiere{% endblock %}
+
+{% block content %}
+
+<h2 class="page-title">Find Properties</h2>
+<p class="page-subtitle">A student-focused place to discover rentals, shared units, and cleaning-ready apartments.</p>
+
+<section class="soft-card mb-5">
+    <label class="label">Search student housing</label>
+    <input class="input" placeholder="Search suburb, room type, or budget">
+    <button class="primary-btn w-full mt-4">Search Properties</button>
+</section>
+
+<section class="space-y-4">
+    <article class="soft-card">
+        <div class="h-32 rounded-2xl bg-gradient-to-br from-yellow-100 to-orange-100 mb-4 flex items-center justify-center text-yellow-800 font-extrabold">
+            Property Image
+        </div>
+        <div class="flex justify-between gap-3">
+            <div>
+                <h3 class="font-extrabold">Shared unit near UQ</h3>
+                <p class="text-sm text-muted mt-1">St Lucia • 2 rooms available • Student friendly</p>
+            </div>
+            <p class="font-extrabold">$280/wk</p>
+        </div>
+        <button class="dark-btn w-full mt-4">View Property</button>
+    </article>
+
+    <article class="soft-card">
+        <div class="h-32 rounded-2xl bg-gradient-to-br from-sky-100 to-emerald-100 mb-4 flex items-center justify-center text-emerald-800 font-extrabold">
+            Property Image
+        </div>
+        <div class="flex justify-between gap-3">
+            <div>
+                <h3 class="font-extrabold">Studio apartment</h3>
+                <p class="text-sm text-muted mt-1">Toowong • Close to transport • Furnished</p>
+            </div>
+            <p class="font-extrabold">$390/wk</p>
+        </div>
+        <button class="dark-btn w-full mt-4">View Property</button>
+    </article>
+</section>
+
+{% endblock %}
