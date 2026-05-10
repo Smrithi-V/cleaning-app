@@ -14,12 +14,83 @@ FILE: templates/dashboard.html
         <div class="relative max-w-2xl">
             <p class="text-sm text-softGold font-black uppercase tracking-[0.25em]">Student Cleaning Exchange</p>
            <h1 class="text-4xl lg:text-5xl font-black mt-5 leading-tight max-w-2xl">Apartment help, without the awkward group chat.</h1>
-            <p class="text-white/70 text-lg mt-5 max-w-xl">Use Wardiere points to request cleaning help, borrow supplies, or help other students around campus.</p>
+            <p class="text-black/70 text-lg mt-5 max-w-xl">Use Wardiere points to request cleaning help, borrow supplies, or help other students around campus.</p>
         </div>
 
-        <div class="relative flex flex-wrap gap-3 mt-8">
-            <a href="{{ url_for('p2p_cleaning') }}" class="primary-btn bg-sky-600 text-white hover:bg-sky-700 transition"><i class="fa-solid fa-broom mr-2"></i>Request Cleaning</a>
-            <a href="{{ url_for('live_services') }}" class="bg-white/10 text-white rounded-2xl px-5 py-3 font-black border border-white/10 hover:bg-white/20">Browse Requests</a>
+        <div class="flex gap-4 mt-8 flex-wrap">
+
+            <a href="{{ url_for('p2p_cleaning') }}"
+            class="primary-btn">
+                <i class="fa-solid fa-broom mr-2"></i>
+                Request Cleaning
+            </a>
+
+            <a href="{{ url_for('live_services') }}"
+            class="dark-btn">
+                Browse Requests
+            </a>
+
+            <div class="mt-12">
+
+    <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+
+        <div>
+            <p class="text-sm font-black uppercase tracking-[0.25em] text-slate-500">
+                How it works
+            </p>
+
+            <h3 class="text-2xl font-black text-ink">
+                Start helping students in 3 steps
+            </h3>
+        </div>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+
+            <div class="bg-slate-50/90 rounded-3xl p-5 border border-slate-100 shadow-sm">
+                <div class="w-11 h-11 rounded-full bg-slate-800 text-white flex items-center justify-center font-black mb-4">
+                    1
+                </div>
+
+                <h3 class="font-black text-xl">Post a request</h3>
+
+                <p class="text-sm text-muted mt-3 leading-relaxed">
+                    Describe the cleaning task or supplies you need.
+                </p>
+            </div>
+
+            <div class="bg-sky-50/90 rounded-3xl p-5 border border-sky-100 shadow-sm">
+                <div class="w-11 h-11 rounded-full bg-sky-700 text-white flex items-center justify-center font-black mb-4">
+                    2
+                </div>
+
+                <h3 class="font-black text-xl">Offer points</h3>
+
+                <p class="text-sm text-muted mt-3 leading-relaxed">
+                    Choose how many Wardiere points the task is worth.
+                </p>
+            </div>
+
+            <div class="bg-emerald-50/90 rounded-3xl p-5 border border-emerald-100 shadow-sm">
+                <div class="w-11 h-11 rounded-full bg-emerald-700 text-white flex items-center justify-center font-black mb-4">
+                    3
+                </div>
+
+                <h3 class="font-black text-xl">Exchange help</h3>
+
+                <p class="text-sm text-muted mt-3 leading-relaxed">
+                    Another verified student accepts and completes it.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
         </div>
     </div>
 
@@ -38,7 +109,7 @@ FILE: templates/dashboard.html
 
         <article class="soft-card bg-blush/80">
             <p class="text-sm text-orange-900 font-black uppercase">Your Rating</p>
-            <h3 class="text-4xl font-black mt-2">4.9</h3>
+            <h3 class="text-4xl font-black mt-2">4.9/5</h3>
             <p class="text-sm text-muted mt-1">Based on completed student exchanges.</p>
         </article>
     </div>
@@ -90,7 +161,7 @@ FILE: templates/dashboard.html
     </div>
 </section>
 
-<section class="grid lg:grid-cols-[1fr_.7fr] gap-6 mt-10">
+<section class="mt-10">
     <div>
         <div class="flex items-end justify-between mb-5">
             <div>
@@ -134,32 +205,5 @@ FILE: templates/dashboard.html
             </article>
         </div>
     </div>
-
-    <aside class="soft-card bg-white">
-        <h2 class="text-2xl font-black">How it works</h2>
-        <div class="space-y-5 mt-5">
-            <div class="flex gap-4">
-                <span class="w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center font-black">1</span>
-                <div>
-                    <h3 class="font-black">Post a request</h3>
-                    <p class="text-sm text-muted">Describe the cleaning task or supply you need.</p>
-                </div>
-            </div>
-            <div class="flex gap-4">
-                <span class="w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center font-black">2</span>
-                <div>
-                    <h3 class="font-black">Offer points</h3>
-                    <p class="text-sm text-muted">Choose how many Wardiere points the task is worth.</p>
-                </div>
-            </div>
-            <div class="flex gap-4">
-                <span class="w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center font-black">3</span>
-                <div>
-                    <h3 class="font-black">Exchange help</h3>
-                    <p class="text-sm text-muted">Another verified student accepts and completes it.</p>
-                </div>
-            </div>
-        </div>
-    </aside>
 </section>
 {% endblock %}
