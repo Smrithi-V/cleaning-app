@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask import session, redirect, url_for, request
 
 app = Flask(__name__)
-app.secret_key = "wardiere-secret-key"
+app.secret_key = "Clean Mates-secret-key"
 
 
 @app.route("/")
